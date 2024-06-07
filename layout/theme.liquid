@@ -11,10 +11,17 @@
     <!-- Header hook for plugins -->
     {{ 'application.css' | asset_url | stylesheet_tag }}
     {{ 'application.js' | asset_url | script_tag }}
-  </head>
+  <script type="text/javascript">if(typeof window.hulkappsWishlist === 'undefined') {
+        window.hulkappsWishlist = {};
+        }
+        window.hulkappsWishlist.baseURL = '/apps/advanced-wishlist/api';
+        window.hulkappsWishlist.hasAppBlockSupport = '';
+        </script>
+</head>
   <body>
     <main role="main">
       {{ content_for_layout }}
     </main>
-  </body>
+  {% render 'hulkappsWishlistPopup' %}
+</body>
 </html>
